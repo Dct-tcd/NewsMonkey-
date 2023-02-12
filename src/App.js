@@ -7,13 +7,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 export default function App() {
-  const [progress, setProgress] = useState(0);
-
+  const [progress, setprogress] = useState(0);
+// setprogress = ()=> {
+//   setprogress(progress);
+// }
+let apikey="9b6df3b19dd44512a22e89512556da3e";
   return (
     <div>
       <Router>
         <Navbar title="article" />
-        <LoadingBar color="#f11946" progress={10} />
+        {/* <LoadingBar color="#f11946" progress={progress} /> */}
         <Routes>
           <Route
             exact
@@ -21,9 +24,11 @@ export default function App() {
             element={
               <News
                 key="general"
-                pageSize={6}
+                pageSize={12}
                 country="in"
                 category="general"
+                setprogress={setprogress}
+                apiKey={apikey}
               />
             }
           ></Route>
@@ -33,9 +38,12 @@ export default function App() {
             element={
               <News
                 key="business"
-                pageSize={6}
+                pageSize={12}
                 country="in"
-                category="business"
+                category="business" 
+                apiKey={apikey}
+                
+                setprogress={setprogress}
               />
             }
           ></Route>
@@ -45,9 +53,13 @@ export default function App() {
             element={
               <News
                 key="entertainment"
-                pageSize={6}
+                pageSize={12}
                 country="in"
                 category="entertainment"
+                
+                setprogress={setprogress}
+                
+                apiKey={apikey}
               />
             }
           ></Route>
@@ -55,7 +67,8 @@ export default function App() {
             exact
             path="/health"
             element={
-              <News key="health" pageSize={6} country="in" category="health" />
+              <News key="health" pageSize={12} country="in"
+              setprogress={setprogress}  category="health" apiKey={apikey} />
             }
           ></Route>
           <Route
@@ -64,9 +77,11 @@ export default function App() {
             element={
               <News
                 key="science"
-                pageSize={6}
+                pageSize={12}
                 country="in"
                 category="science"
+                
+                apiKey={apikey}
               />
             }
           ></Route>
@@ -74,7 +89,8 @@ export default function App() {
             exact
             path="/sports"
             element={
-              <News key="sports" pageSize={6} country="in" category="sports" />
+              <News key="sports" pageSize={12}  
+              setprogress={setprogress} country="in" category="sports" apiKey={apikey} />
             }
           ></Route>
           <Route
@@ -83,9 +99,12 @@ export default function App() {
             element={
               <News
                 key="technology"
-                pageSize={6}
+                pageSize={12}
                 country="in"
                 category="technology"
+                
+                setprogress={setprogress}
+                apiKey={apikey}
               />
             }
           ></Route>

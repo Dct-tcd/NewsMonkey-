@@ -39,13 +39,19 @@ const [totalResults, settotalResults] = useState(20)
 const [source, setsource] = useState(null)
   const getData = () => {
         setloading(true);
+       
   
+        // props.setprogress(30);
         fetch(
-      `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=ee7167636ab94f22a5c0d7cfc628d8ee&pageSize=${props.pageSize}`
+      `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&pageSize=${props.pageSize}`
     )
       .then((res) => res.json())
       .then((res) => {
+        // setprogress(50);
+        // props.setprogress(30);
         let parsedData = res;
+        // setprogress(70);
+   
         let ans = parsedData.articles;
         console.log(ans);
         settotalResults(parsedData.totalResults);
@@ -54,7 +60,8 @@ const [source, setsource] = useState(null)
         setauthor(parsedData.author);
         setpublishedAt(parsedData.publishedAt);
         setsource(parsedData.source.name);
-        // console.log(parsedData);
+        // props.setprogress(100);
+  
       });
   
   };
@@ -71,19 +78,22 @@ const [source, setsource] = useState(null)
         // console.log("nxt");
   const getData = () => {
         setloading(true);  
-  
+  // props.setprogress(30);
         fetch(
-      `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=ee7167636ab94f22a5c0d7cfc628d8ee&page=${page + 1}&pageSize=${props.pageSize}`
+      `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page + 1}&pageSize=${props.pageSize}`
     )
       .then((res) => res.json())
       .then((res) => {
+        // setprogress(50);
         let parsedData = res;
         let ans = parsedData.articles;
         console.log(ans);
         setarticle(ans);
+        // setprogress(70);
         setauthor(parsedData.author);
         setpublishedAt(parsedData.publishedAt); 
         setsource(parsedData.source.name);
+        // props.setprogress(100);
 });
       setpage(page+1)
       setloading(false);
@@ -101,10 +111,11 @@ let HandlePrevClick = () => {
   const getData = () => {
         setloading(true);
     fetch(
-      `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=ee7167636ab94f22a5c0d7cfc628d8ee&page=${page-1}&pageSize=${props.pageSize}`
+      `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apikey=${props.apiKey}&page=${page-1}&pageSize=${props.pageSize}`
     )
       .then((res) => res.json())
       .then((res) => {
+        
         let parsedData = res;
         let ans = parsedData.articles;
         console.log(ans);
@@ -123,9 +134,9 @@ getData();
 
 
   return (
-    <div className="container my-3">
+    <div className="container  text-center justifyContent-center my-3">
        
-      <h2 className="text-center"> NewsMonkey - Top {capitlizeText(props.category)} Headlines  </h2>
+      <h2 className="text-center " style={{marginTop : "90px"}}> NewsMonkey - Top {capitlizeText(props.category)} Headlines  </h2>
       {loadingstate==true ?<Spinner/>:""}
       <div className="row md-4">
         {loadingstate==false && article.map((element) => {
@@ -140,6 +151,7 @@ getData();
                 author = {element.author}
                 publishedAt = {element.publishedAt}
                 srcname = {element.source.name}
+
               />
             </div>
           );
