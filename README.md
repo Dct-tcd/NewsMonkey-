@@ -1,3 +1,9 @@
+# Screenshots / Stills .
+https://github.com/Dct-tcd/NewsMonkey-/issues/1#issue-1581204449
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
