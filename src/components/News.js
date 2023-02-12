@@ -137,9 +137,9 @@ getData();
     <div className="container  text-center justifyContent-center my-3">
        
       <h2 className="text-center " style={{marginTop : "90px"}}> NewsMonkey - Top {capitlizeText(props.category)} Headlines  </h2>
-      {loadingstate==true ?<Spinner/>:""}
+      {loadingstate===true ?<Spinner/>:""}
       <div className="row md-4">
-        {loadingstate==false && article.map((element) => {
+        {loadingstate===false && article.map((element) => {
           return (
             <div className="col md-3 my-3" key={element.url}>
               <Newsitem

@@ -1,13 +1,13 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import News from "./components/News";
-import LoadingBar from "react-top-loading-bar";
+// import LoadingBar from "react-top-loading-bar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 export default function App() {
-  const [progress, setprogress] = useState(0);
+  // const [progress, setprogress] = useState(0);
 // setprogress = ()=> {
 //   setprogress(progress);
 // }
@@ -27,7 +27,7 @@ let apikey="9b6df3b19dd44512a22e89512556da3e";
                 pageSize={12}
                 country="in"
                 category="general"
-                setprogress={setprogress}
+                
                 apiKey={apikey}
               />
             }
@@ -43,7 +43,7 @@ let apikey="9b6df3b19dd44512a22e89512556da3e";
                 category="business" 
                 apiKey={apikey}
                 
-                setprogress={setprogress}
+                
               />
             }
           ></Route>
@@ -57,7 +57,7 @@ let apikey="9b6df3b19dd44512a22e89512556da3e";
                 country="in"
                 category="entertainment"
                 
-                setprogress={setprogress}
+                
                 
                 apiKey={apikey}
               />
@@ -68,7 +68,7 @@ let apikey="9b6df3b19dd44512a22e89512556da3e";
             path="/health"
             element={
               <News key="health" pageSize={12} country="in"
-              setprogress={setprogress}  category="health" apiKey={apikey} />
+                category="health" apiKey={apikey} />
             }
           ></Route>
           <Route
@@ -90,7 +90,7 @@ let apikey="9b6df3b19dd44512a22e89512556da3e";
             path="/sports"
             element={
               <News key="sports" pageSize={12}  
-              setprogress={setprogress} country="in" category="sports" apiKey={apikey} />
+               country="in" category="sports" apiKey={apikey} />
             }
           ></Route>
           <Route
@@ -103,7 +103,7 @@ let apikey="9b6df3b19dd44512a22e89512556da3e";
                 country="in"
                 category="technology"
                 
-                setprogress={setprogress}
+                
                 apiKey={apikey}
               />
             }
